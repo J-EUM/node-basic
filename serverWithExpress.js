@@ -1,6 +1,7 @@
 const http = require('http');
 const express = require('express');
 const {sendProducts} = require('./sendProducts2');
+const {createUser} = require('./user');
 
 // express로 앱 생성
 const app = express();
@@ -13,7 +14,7 @@ app.get('/ping', (req, res) => {
     res.json({message: '/ pong'});
 });
 
-app.post('/signup', (req, res) => {res.json({message: '회원가입 완료!'})});
+app.post('/signup', createUser);
 app.post('/login', (req, res) => {res.json({message: '로그인 완료!'})});
 app.get('/products', sendProducts);
 
