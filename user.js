@@ -37,4 +37,4 @@ const createUser = (req, res) => {
     res.json({massage: "userCreated"})
 }
 
-module.exports = {createUser};
+module.exports = {createUser, users};

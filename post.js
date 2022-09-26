@@ -1,3 +1,4 @@
+const {users} = require('./user')
 const posts = [
     {
         id: 1,
@@ -19,4 +20,18 @@ const createPost = (req, res) => {
     res.json({massage: 'postCreated'});
 };
 
-module.exports = {createPost};
+const getPosts = (req, res) => {
+    const data = posts.map((post) => {
+        const user = users.find((user) => post.userId == user.id);
+        return {
+            userId: post.userId,
+            userName: user.name,
+            postingId: post.id,
+            postingTitle: post.title,
+            postingContent: post.content
+        }
+    } );
+    res.json({data: data});
+}
+
+module.exports = {createPost, getPosts};
