@@ -17,7 +17,7 @@ const posts = [
 const createPost = (req, res) => {
     const {id, title, content, userId} = req.body.data;
     posts.push({id, title, content, userId});
-    res.json({massage: 'postCreated'});
+    res.status(201).json({massage: 'postCreated'});
 };
 
 const getPosts = (req, res) => {

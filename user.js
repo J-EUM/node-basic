@@ -34,7 +34,7 @@ const createUser = (req, res) => {
     //const user = req.body.data;
     const {id, name, email, password} = req.body.data; // 구조분해할당
     users.push({id, name, email, password}); // key-value가 같아서 한번만 써줌
-    res.json({massage: "userCreated"})
+    res.status(201).json({massage: "userCreated"})
 }
 
 module.exports = {createUser, users};
